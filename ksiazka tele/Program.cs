@@ -16,7 +16,8 @@ namespace ksiazka_tele
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new daaaaaamn());
+            Application.Run(new MainClass());
         }
     }
+
 }
