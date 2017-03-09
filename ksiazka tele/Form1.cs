@@ -12,7 +12,6 @@ namespace ksiazka_tele
 {
     public partial class daaaaaamn : Form
     {
-        private int numerTele;
         public daaaaaamn()
         {
             InitializeComponent();
@@ -29,11 +28,11 @@ namespace ksiazka_tele
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {   if(pepePic.Visible == false)
-            pepePic.Visible = true;
+        {   if(pepePic.Enabled == false)
+            pepePic.Enabled = true;
         else
             {
-                pepePic.Visible = false;
+                pepePic.Enabled = false;
             }
 
         }
@@ -59,5 +58,12 @@ namespace ksiazka_tele
             textBox2.Text = "";
             textBox3.Text = "";
         }
+
+        private void daaaaaamn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
