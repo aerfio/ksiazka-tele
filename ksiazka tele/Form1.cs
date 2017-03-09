@@ -20,30 +20,18 @@ namespace ksiazka_tele
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (pepePic.Visible == false)
+            if (pepePic.Visible ==false) //jak zmienilem tutaj i w designerze visible na enabled to nie dziala, idk why
                 pepePic.Visible = true;
             else
             {
-                pepePic.Visible = false;
+                pepePic.Visible= false;
             }
         }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Person osoba = new Person();
@@ -63,12 +51,6 @@ namespace ksiazka_tele
             textBox3.Text = "";
         }
 
-       
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
     public class Person
     {

@@ -47,7 +47,6 @@
             this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Wpisz tu imie";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -91,7 +90,6 @@
             this.textBox3.Size = new System.Drawing.Size(76, 20);
             this.textBox3.TabIndex = 4;
             this.textBox3.Text = "tutaj numer";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button2
             // 
@@ -111,7 +109,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(122, 147);
             this.listBox1.TabIndex = 7;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // MainClass
             // 
