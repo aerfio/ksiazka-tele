@@ -115,14 +115,32 @@ namespace ksiazka_tele
 
         private void deleteButton(object sender, EventArgs e)
         {
+            List<int> temp = new List<int>();
+            foreach (string s in listBox1.SelectedItems)
+            {
+                temp.Add(listBox1.Items.IndexOf(s));
+            }
+
             if (listBox1.SelectedIndex != -1)
             {
-                listOfPeople.RemoveAt(listBox1.SelectedIndex);
-                zapasowa.RemoveAt(listBox1.SelectedIndex);
-                listBox1.Items.Remove(listBox1.SelectedItem);
-                listBox1.Update();
+                //listOfPeople.RemoveAt(listBox1.SelectedIndex);
+                //zapasowa.RemoveAt(listBox1.SelectedIndex);
+                //listBox1.Items.Remove(listBox1.SelectedItem);
+                //listBox1.Update();
+                
+                listOfPeople.RemoveAll(p =>temp.Contains(listOfPeople.IndexOf(p)));
+                zapasowa.RemoveAll(x => temp.Contains(zapasowa.IndexOf(x)));
+                int koniec = listBox1.SelectedItems.Count;
+
+                for (int i = 0; i < koniec; i++)
+                {
+                    listBox1.Items.Remove(listBox1.SelectedItems[0]);
+                }
+                
+
             }
         }
+       
 
         private void findBox_Click(object sender, EventArgs e)
         {
