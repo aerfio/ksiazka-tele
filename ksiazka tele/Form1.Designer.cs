@@ -46,20 +46,20 @@
             // textBox1
             // 
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox1.Location = new System.Drawing.Point(68, 65);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Location = new System.Drawing.Point(51, 53);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Wpisz tu imie";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(68, 111);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Location = new System.Drawing.Point(51, 90);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.Size = new System.Drawing.Size(76, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "tutaj nazwisko";
             this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
@@ -69,10 +69,10 @@
             this.pepePic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pepePic.BackgroundImage")));
             this.pepePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pepePic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pepePic.Location = new System.Drawing.Point(425, 231);
-            this.pepePic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pepePic.Location = new System.Drawing.Point(319, 188);
+            this.pepePic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pepePic.Name = "pepePic";
-            this.pepePic.Size = new System.Drawing.Size(189, 157);
+            this.pepePic.Size = new System.Drawing.Size(142, 128);
             this.pepePic.TabIndex = 2;
             this.pepePic.TabStop = false;
             this.pepePic.Visible = false;
@@ -80,32 +80,33 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(495, 188);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(371, 153);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 3;
+            this.button1.TabStop = false;
             this.button1.Text = "Bonus :*";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(68, 161);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox3.Location = new System.Drawing.Point(51, 131);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.Size = new System.Drawing.Size(76, 20);
             this.textBox3.TabIndex = 2;
             this.textBox3.Text = "tutaj numer";
             this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(68, 209);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(51, 170);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 23);
-            this.button2.TabIndex = 4;
+            this.button2.Size = new System.Drawing.Size(91, 19);
+            this.button2.TabIndex = 3;
             this.button2.Text = "Zapisz kontakt";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -113,30 +114,33 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(287, 31);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.Location = new System.Drawing.Point(215, 25);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(161, 180);
+            this.listBox1.Size = new System.Drawing.Size(122, 147);
             this.listBox1.TabIndex = 7;
+            this.listBox1.TabStop = false;
             this.listBox1.DoubleClick += new System.EventHandler(this.ListBox1_DoubleClick);
             // 
             // findBox
             // 
-            this.findBox.Location = new System.Drawing.Point(287, 218);
+            this.findBox.Location = new System.Drawing.Point(215, 177);
+            this.findBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.findBox.Name = "findBox";
-            this.findBox.Size = new System.Drawing.Size(161, 22);
+            this.findBox.Size = new System.Drawing.Size(122, 20);
             this.findBox.TabIndex = 9;
+            this.findBox.TabStop = false;
             this.findBox.Text = "Wyszukiwarka";
             this.findBox.Click += new System.EventHandler(this.findBox_Click);
             this.findBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(562, 13);
+            this.button3.Location = new System.Drawing.Point(422, 11);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 26);
+            this.button3.Size = new System.Drawing.Size(38, 21);
             this.button3.TabIndex = 11;
+            this.button3.TabStop = false;
             this.button3.Text = "Help";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.UseWaitCursor = true;
@@ -144,29 +148,33 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(287, 255);
+            this.button4.Location = new System.Drawing.Point(215, 207);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(122, 51);
+            this.button4.Size = new System.Drawing.Size(92, 41);
             this.button4.TabIndex = 12;
+            this.button4.TabStop = false;
             this.button4.Text = "Usuń zaznaczone";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.deleteButton);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 318);
+            this.button5.Location = new System.Drawing.Point(9, 258);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(222, 70);
+            this.button5.Size = new System.Drawing.Size(166, 57);
             this.button5.TabIndex = 13;
+            this.button5.TabStop = false;
             this.button5.Text = "Naciśnij mnie i sprawdź puplit";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 400);
+            this.ClientSize = new System.Drawing.Size(469, 325);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.pepePic);
             this.Controls.Add(this.button4);
@@ -178,7 +186,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainClass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "my program";
