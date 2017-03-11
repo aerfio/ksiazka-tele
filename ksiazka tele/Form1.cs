@@ -62,7 +62,6 @@ namespace ksiazka_tele
             }
         }
 
-
         private void ListBox1_DoubleClick(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem != null)
@@ -127,8 +126,8 @@ namespace ksiazka_tele
                 //zapasowa.RemoveAt(listBox1.SelectedIndex);
                 //listBox1.Items.Remove(listBox1.SelectedItem);
                 //listBox1.Update();
-                
-                listOfPeople.RemoveAll(p =>temp.Contains(listOfPeople.IndexOf(p)));
+
+                listOfPeople.RemoveAll(p => temp.Contains(listOfPeople.IndexOf(p)));
                 zapasowa.RemoveAll(x => temp.Contains(zapasowa.IndexOf(x)));
                 int koniec = listBox1.SelectedItems.Count;
 
@@ -136,11 +135,8 @@ namespace ksiazka_tele
                 {
                     listBox1.Items.Remove(listBox1.SelectedItems[0]);
                 }
-                
-
             }
         }
-       
 
         private void findBox_Click(object sender, EventArgs e)
         {
