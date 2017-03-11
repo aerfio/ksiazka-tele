@@ -11,6 +11,7 @@ namespace ksiazka_tele
     {
 
         List<Person> listOfPeople = new List<Person>();
+        List<string> zapasowa = new List<string>();
         int forParsing = 0;
 
         public MainClass()
@@ -46,6 +47,7 @@ namespace ksiazka_tele
             listOfPeople.Add(osoba);
  
             listBox1.Items.Add(osoba.Surname);
+            zapasowa.Add(osoba.Surname);
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -84,20 +86,54 @@ namespace ksiazka_tele
 
         private void findBox_TextChanged(object sender, EventArgs e)
         {
-            foreach (Person jacek in listOfPeople)
+            listBox1.Items.Clear();
+            foreach (string g in zapasowa)
             {
-
+                listBox1.Items.Add(g);
+            }
+            
+            List<string> temp = new List<string>();
+            foreach (string s in listBox1.Items)
+            {
+                if (s.ToLower().Contains(findBox.Text.ToLower()))
+                {
+                    temp.Add(s);
+                }
+            }
+            listBox1.Items.Clear();
+            foreach (string s in temp)
+            {
+                listBox1.Items.Add(s);
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void deleteButton(object sender, EventArgs e)
         {
-            listBox1.SelectedItems.Clear();
+            if (listBox1.SelectedIndex != -1)
+            {
+                listOfPeople.RemoveAt(listBox1.SelectedIndex);
+                listBox1.Items.Remove(listBox1.SelectedItem);
+                listBox1.Update();
+            }
         }
+        
 
         private void findBox_Click(object sender, EventArgs e)
         {
             findBox.SelectAll();
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.SelectAll();
+        }
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            textBox2.SelectAll();
+        }
+        private void textBox3_Click(object sender, EventArgs e)
+        {
+            textBox3.SelectAll();
         }
     }
     public class Person
