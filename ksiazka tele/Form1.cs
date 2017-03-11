@@ -42,7 +42,7 @@ namespace ksiazka_tele
                 MessageBox.Show("Podaj nr telefonu, czyli liczbe!","Błąd");
                 return;
             }
-            
+            osoba.TelNum = forParsing;
             listOfPeople.Add(osoba);
  
             listBox1.Items.Add(osoba.Surname);
@@ -51,6 +51,54 @@ namespace ksiazka_tele
             textBox3.Text = "";
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void ListBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                textBox2.Text = listBox1.SelectedItem.ToString();
+                foreach (Person jacek in listOfPeople)
+                {
+                    if (jacek.Surname.Equals(listBox1.SelectedItem.ToString()))
+                    {
+                        textBox1.Text = jacek.Name;
+                        textBox3.Text = jacek.TelNum.ToString();
+                    }
+                }
+               
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("jakis tutorial tutaj moglbym dac, ale chuj, dacie se rade", "Help");
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void findBox_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Person jacek in listOfPeople)
+            {
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listBox1.SelectedItems.Clear();
+        }
+
+        private void findBox_Click(object sender, EventArgs e)
+        {
+            findBox.SelectAll();
+        }
     }
     public class Person
     {
