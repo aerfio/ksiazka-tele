@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 
 
@@ -134,6 +135,17 @@ namespace ksiazka_tele
         private void textBox3_Click(object sender, EventArgs e)
         {
             textBox3.SelectAll();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            StringBuilder temp = new StringBuilder();
+            foreach (Person jacek in listOfPeople)
+
+            {
+
+            }
+
         }
     }
     public class Person
