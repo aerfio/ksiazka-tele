@@ -35,7 +35,7 @@ namespace ksiazka_tele
             bool suchPersonExists = listBox1.Items.Contains(textBox2.Text + " " + textBox1.Text);
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && int.TryParse(textBox3.Text, out forParsing))
             {
-                if(whiteSpaceInside1 || whiteSpaceInside2)
+                if (whiteSpaceInside1 || whiteSpaceInside2)
                 {
                     MessageBox.Show("imie albo nazwisko ze spacja wtf");
                     return;
@@ -88,13 +88,13 @@ namespace ksiazka_tele
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("jakis tutorial tutaj moglbym dac, ale chuj, dacie se rade", "Help");
+            MessageBox.Show("Nie bawcie się w Żyłkę, i tak jest w chuj bugów, nie chce mi sie wszystkiego naprawiać.\n\nWiele wierszy zaznacza sie z użycime controla - patrz kasowanie wielu elementów tabeli.\n\nZapisz wszystko co chcesz do tabelki i naciśnij przycisk na dole po lewej, żeby stworzyć archiwum zip ze wszystkimi kontaktami, w formie kontaktów vcf.\n\nNaciśnięcie taba przeskakuje pomiędzy polami.", "Help");
         }
 
         private void findBox_TextChanged(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            
+
             List<string> temp = new List<string>();
             foreach (string s in zapasowa)
             {
@@ -154,7 +154,7 @@ namespace ksiazka_tele
         {
             textBox3.SelectAll();
         }
-        
+
         private void button5_Click(object sender, EventArgs e)
         {
             //tworzymy kolekcje stringow ktore beda vcf'ami
@@ -183,7 +183,6 @@ namespace ksiazka_tele
             //    File.WriteAllText(path + "\\"+fileName+j.ToString()+".vcf", s.ToString());
             //    j++;
             //}
-            
 
             int i = 0;
             do
@@ -201,63 +200,61 @@ namespace ksiazka_tele
                         using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
                         {
                             writer.Write(file);
-                        } 
+                        }
                     }
-                        zip.Dispose();
-                        break;
+                    zip.Dispose();
+                    break;
+                }
+                i++;
+            } while (true);
+        }
 
-                    }
-                    i++;
-                } while (true) ;
-            
-            }
         //http://www.codeguru.com/csharp/.net/zip-and-unzip-files-programmatically-in-c.htm
-    
 
-public class Person
-{
-    private string name;
-    private string surname;
-    private int telNum;
-
-    public string Name
-    {
-        get
+        public class Person
         {
-            return name;
-        }
+            private string name;
+            private string surname;
+            private int telNum;
 
-        set
-        {
-            name = value;
+            public string Name
+            {
+                get
+                {
+                    return name;
+                }
+
+                set
+                {
+                    name = value;
+                }
+            }
+
+            public string Surname
+            {
+                get
+                {
+                    return surname;
+                }
+
+                set
+                {
+                    surname = value;
+                }
+            }
+
+            public int TelNum
+            {
+                get
+                {
+                    return telNum;
+                }
+
+                set
+                {
+                    telNum = value;
+                }
+            }
         }
     }
-
-    public string Surname
-    {
-        get
-        {
-            return surname;
-        }
-
-        set
-        {
-            surname = value;
-        }
-    }
-
-    public int TelNum
-    {
-        get
-        {
-            return telNum;
-        }
-
-        set
-        {
-            telNum = value;
-        }
-    }
-}
-}
 }

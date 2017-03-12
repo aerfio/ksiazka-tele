@@ -79,7 +79,6 @@
             this.pepePic.TabIndex = 2;
             this.pepePic.TabStop = false;
             this.pepePic.Visible = false;
-  
             // 
             // button1
             // 
@@ -147,7 +146,6 @@
             this.button3.TabStop = false;
             this.button3.Text = "Help";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.UseWaitCursor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
