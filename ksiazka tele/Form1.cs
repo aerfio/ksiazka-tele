@@ -18,10 +18,6 @@ namespace ksiazka_tele
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (pepePic.Visible == false) //jak zmienilem tutaj i w designerze visible na enabled to nie dziala, idk why
@@ -34,9 +30,16 @@ namespace ksiazka_tele
 
         private void button2_Click(object sender, EventArgs e)
         {
+            bool whiteSpaceInside1 = textBox1.Text.Contains(" ");
+            bool whiteSpaceInside2 = textBox2.Text.Contains(" ");
             bool suchPersonExists = listBox1.Items.Contains(textBox2.Text + " " + textBox1.Text);
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && int.TryParse(textBox3.Text, out forParsing))
             {
+                if(whiteSpaceInside1 || whiteSpaceInside2)
+                {
+                    MessageBox.Show("imie albo nazwisko ze spacja wtf");
+                    return;
+                }
                 if (suchPersonExists)
                 {
                     MessageBox.Show("Błąd! Taka osoba już istnieje.", "Error");
@@ -88,20 +91,12 @@ namespace ksiazka_tele
             MessageBox.Show("jakis tutorial tutaj moglbym dac, ale chuj, dacie se rade", "Help");
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void findBox_TextChanged(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            foreach (string g in zapasowa)
-            {
-                listBox1.Items.Add(g);
-            }
-
+            
             List<string> temp = new List<string>();
-            foreach (string s in listBox1.Items)
+            foreach (string s in zapasowa)
             {
                 if (s.ToLower().Contains(findBox.Text.ToLower()))
                 {
@@ -159,83 +154,110 @@ namespace ksiazka_tele
         {
             textBox3.SelectAll();
         }
-
+        
         private void button5_Click(object sender, EventArgs e)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            if (!Directory.Exists(path + "\\Address Book Data"))
-                Directory.CreateDirectory(path + "\\Address Book Data");
-
-            if (!File.Exists(path + "\\Address Book Data\\kontakt.vcf"))
+            //tworzymy kolekcje stringow ktore beda vcf'ami
+            List<string> listaKontaktow = new List<string>();
+            StringBuilder temp = new StringBuilder();
+            foreach (Person per in listOfPeople)
             {
-                List<string> listaKontaktow = new List<string>();
-                StringBuilder temp = new StringBuilder();
-                foreach (Person per in listOfPeople)
-                {
-                    string N = per.Surname + " " + per.Name;
-                    temp.Append("BEGIN:VCARD" + System.Environment.NewLine);
-                    temp.Append("VERSION:2.1" + System.Environment.NewLine);
-                    temp.Append("N:" + N.Replace(" ", ";") + ";" + System.Environment.NewLine);
-                    temp.Append("FN:" + N + System.Environment.NewLine);
-                    temp.Append("TEL;CELL:" + per.TelNum + System.Environment.NewLine);
-                    temp.Append("END:VCARD" + System.Environment.NewLine);
-                    listaKontaktow.Add(temp.ToString());
-                }
-                //File.WriteAllText(path + "\\Address Book Data\\myContactsDataBase.vcf", temp.ToString());
-                //ZipArchive zip = ZipFile.Open(path.FileName, ZipArchiveMode.Create);
-                //foreach (string file in listaKontaktow)
-                //{
-                //    zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
-                //}
-                //zip.Dispose();
-                ////http://www.codeguru.com/csharp/.net/zip-and-unzip-files-programmatically-in-c.htm
+                string N = per.Surname + " " + per.Name;
+                temp.Append("BEGIN:VCARD" + System.Environment.NewLine);
+                temp.Append("VERSION:2.1" + System.Environment.NewLine);
+                temp.Append("N:" + N.Replace(" ", ";") + ";" + System.Environment.NewLine);
+                temp.Append("FN:" + N + System.Environment.NewLine);
+                temp.Append("TEL;CELL:" + per.TelNum + System.Environment.NewLine);
+                temp.Append("END:VCARD" + System.Environment.NewLine);
+                listaKontaktow.Add(temp.ToString());
+                temp.Clear();
             }
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //int j = 0;
+            //foreach (string s in listaKontaktow)
+            //{
+            //    int poczatek = s.IndexOf("FN:");
+            //    int koniec = s.IndexOf("\r\nT");
+            //    string fileName = s.Substring(poczatek + 3, koniec - poczatek - 3); //+ "\r\nT".Length
+            //    File.WriteAllText(path + "\\"+fileName+j.ToString()+".vcf", s.ToString());
+            //    j++;
+            //}
+            
+
+            int i = 0;
+            do
+            {
+                if (!File.Exists(path + "\\archiwum_z_programu_puczka" + i.ToString() + ".zip"))
+                {
+                    ZipArchive zip = ZipFile.Open(path + "\\archiwum_z_programu_puczka" + i.ToString() + ".zip", ZipArchiveMode.Create);
+                    foreach (string file in listaKontaktow)
+                    {
+                        int poczatek = file.IndexOf("FN:");
+                        int koniec = file.IndexOf("\r\nT");
+                        string fileName = file.Substring(poczatek + 3, koniec - poczatek - 3); //+ "\r\nT".Length
+
+                        ZipArchiveEntry readmeEntry = zip.CreateEntry(fileName + ".vcf");
+                        using (StreamWriter writer = new StreamWriter(readmeEntry.Open()))
+                        {
+                            writer.Write(file);
+                        } 
+                    }
+                        zip.Dispose();
+                        break;
+
+                    }
+                    i++;
+                } while (true) ;
+            
+            }
+        //http://www.codeguru.com/csharp/.net/zip-and-unzip-files-programmatically-in-c.htm
+    
+
+public class Person
+{
+    private string name;
+    private string surname;
+    private int telNum;
+
+    public string Name
+    {
+        get
+        {
+            return name;
         }
 
-        public class Person
+        set
         {
-            private string name;
-            private string surname;
-            private int telNum;
-
-            public string Name
-            {
-                get
-                {
-                    return name;
-                }
-
-                set
-                {
-                    name = value;
-                }
-            }
-
-            public string Surname
-            {
-                get
-                {
-                    return surname;
-                }
-
-                set
-                {
-                    surname = value;
-                }
-            }
-
-            public int TelNum
-            {
-                get
-                {
-                    return telNum;
-                }
-
-                set
-                {
-                    telNum = value;
-                }
-            }
+            name = value;
         }
     }
+
+    public string Surname
+    {
+        get
+        {
+            return surname;
+        }
+
+        set
+        {
+            surname = value;
+        }
+    }
+
+    public int TelNum
+    {
+        get
+        {
+            return telNum;
+        }
+
+        set
+        {
+            telNum = value;
+        }
+    }
+}
+}
 }

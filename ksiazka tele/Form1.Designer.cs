@@ -79,7 +79,7 @@
             this.pepePic.TabIndex = 2;
             this.pepePic.TabStop = false;
             this.pepePic.Visible = false;
-            this.pepePic.Click += new System.EventHandler(this.pictureBox1_Click);
+  
             // 
             // button1
             // 
