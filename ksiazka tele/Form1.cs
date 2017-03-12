@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using System.Text;
 using System.Windows.Forms;
 
@@ -160,56 +162,79 @@ namespace ksiazka_tele
 
         private void button5_Click(object sender, EventArgs e)
         {
-            StringBuilder temp = new StringBuilder();
-            foreach (Person jacek in listOfPeople)
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (!Directory.Exists(path + "\\Address Book Data"))
+                Directory.CreateDirectory(path + "\\Address Book Data");
 
+            if (!File.Exists(path + "\\Address Book Data\\kontakt.vcf"))
             {
-            }
-        }
-    }
-
-    public class Person
-    {
-        private string name;
-        private string surname;
-        private int telNum;
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                name = value;
-            }
-        }
-
-        public string Surname
-        {
-            get
-            {
-                return surname;
-            }
-
-            set
-            {
-                surname = value;
+                List<string> listaKontaktow = new List<string>();
+                StringBuilder temp = new StringBuilder();
+                foreach (Person per in listOfPeople)
+                {
+                    string N = per.Surname + " " + per.Name;
+                    temp.Append("BEGIN:VCARD" + System.Environment.NewLine);
+                    temp.Append("VERSION:2.1" + System.Environment.NewLine);
+                    temp.Append("N:" + N.Replace(" ", ";") + ";" + System.Environment.NewLine);
+                    temp.Append("FN:" + N + System.Environment.NewLine);
+                    temp.Append("TEL;CELL:" + per.TelNum + System.Environment.NewLine);
+                    temp.Append("END:VCARD" + System.Environment.NewLine);
+                    listaKontaktow.Add(temp.ToString());
+                }
+                //File.WriteAllText(path + "\\Address Book Data\\myContactsDataBase.vcf", temp.ToString());
+                //ZipArchive zip = ZipFile.Open(path.FileName, ZipArchiveMode.Create);
+                //foreach (string file in listaKontaktow)
+                //{
+                //    zip.CreateEntryFromFile(file, Path.GetFileName(file), CompressionLevel.Optimal);
+                //}
+                //zip.Dispose();
+                ////http://www.codeguru.com/csharp/.net/zip-and-unzip-files-programmatically-in-c.htm
             }
         }
 
-        public int TelNum
+        public class Person
         {
-            get
+            private string name;
+            private string surname;
+            private int telNum;
+
+            public string Name
             {
-                return telNum;
+                get
+                {
+                    return name;
+                }
+
+                set
+                {
+                    name = value;
+                }
             }
 
-            set
+            public string Surname
             {
-                telNum = value;
+                get
+                {
+                    return surname;
+                }
+
+                set
+                {
+                    surname = value;
+                }
+            }
+
+            public int TelNum
+            {
+                get
+                {
+                    return telNum;
+                }
+
+                set
+                {
+                    telNum = value;
+                }
             }
         }
     }
